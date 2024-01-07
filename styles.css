@@ -33,6 +33,12 @@ header {
     color: greenyellow;
 }
 
+.makeIt {
+    font-size: 6vw;
+    color: white;
+}
+
+
 .clear {
     display: flex;
     justify-content: center;
@@ -64,4 +70,26 @@ h2 {
 
 li {
     list-style: none;
+}
+ul{
+        padding-inline-start: 0;
+
+}
+
+
+.packagesContainer {
+    display: flex;
+}
+
+.whiteCard {
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 7px;
 }
