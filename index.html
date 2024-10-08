@@ -26,6 +26,87 @@
         background-color: black;
         width: 100vw;
       }
+      /* Navbar Styling */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+      }
+
+      .navbar .logo a {
+        color: #ffae42; /* Orangy yellow */
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .navbar .nav-links {
+        display: none;
+        gap: 1.5rem;
+        padding-left: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+
+      .navbar .nav-links li {
+        list-style: none;
+      }
+
+      .navbar .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      .navbar .nav-links a:hover {
+        color: #ffbf66;
+      }
+
+      /* Hamburger Menu Styles */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger .bar {
+        height: 3px;
+        width: 25px;
+        background-color: white;
+        margin: 3px 0;
+        transition: 0.4s;
+      }
+
+      /* Responsive Navbar Styles */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          width: 100%;
+          background-color: rgba(0, 0, 0, 0.8);
+          z-index: 999;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+      }
+
       /* Hero Section */
       .hero {
         position: fixed;
@@ -75,8 +156,7 @@
         background-color: #ffbf66;
       }
 
-      /* Testimonials Section */
-
+      /* Maintain Space Below Hero */
       .vh {
         margin-top: 100vh;
       }
@@ -409,11 +489,37 @@
   <body>
     <header class="hero">
       <div class="overlay"></div>
+
+      <!-- Navigation Bar -->
+      <nav class="navbar">
+        <div class="logo">
+          <a href="#">Luxe Alpine Designs</a>
+          <!-- Company Name -->
+        </div>
+
+        <!-- Hamburger Menu Icon -->
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="tel:+15555555555">Contact</a></li>
+        </ul>
+      </nav>
+
       <div class="hero-content">
         <h1>Crafting Timeless A-Frame Homes for Mountain Living</h1>
-        <a href="#quote" class="cta-button">Get a Quote</a>
+        <a href="#cost-calculator" class="cta-button">Get An Estimate</a>
       </div>
     </header>
+
     <div class="black">
       <section class="vh testimonials">
         <div class="testimonial">
@@ -439,7 +545,7 @@
         </div>
       </section>
 
-      <section class="gallery">
+      <section class="gallery" id="gallery">
         <div class="gallery-item">
           <img src="image1.jpg" alt="A-frame home 1" />
         </div>
@@ -460,7 +566,7 @@
         </div>
       </section>
 
-      <section class="faq">
+      <section class="faq" id="faq">
         <div class="question">
           <h3>What is an A-frame house?</h3>
           <div class="answer">
@@ -606,7 +712,7 @@
         </div>
       </section>
 
-      <section class="process">
+      <section class="process" id="process">
         <h2>How It Works</h2>
         <div class="process-steps">
           <div class="step">
@@ -686,7 +792,7 @@
         <button id="calculate-btn">Calculate Cost</button>
         <h3 id="estimated-cost"></h3>
       </section>
-      <section class="about-us-section">
+      <section class="about-us-section" id="about">
         <h2 class="about-us-title">About Us</h2>
         <div class="about-content">
           <img
@@ -767,6 +873,13 @@
       </footer>
     </div>
     <script>
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active"); // Toggle the 'active' class
+      });
+
       document.querySelectorAll(".question").forEach((question) => {
         question.addEventListener("click", () => {
           const answer = question.querySelector(".answer");
