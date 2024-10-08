@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxe Alpine Designs</title>
+    <style>
+      /* General Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        color: #fff;
+        background-color: #000;
+      }
+
+      h1 {
+        max-width: 800px;
+      }
+
+      .black {
+        background-color: black;
+        width: 100vw;
+      }
+      /* Hero Section */
+      .hero {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background: url("aframe.jpg") center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: -1;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+
+      .hero-content {
+        position: relative;
+        text-align: center;
+        z-index: 1;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #fff;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: #ffae42;
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background-color: #ffbf66;
+      }
+
+      /* Testimonials Section */
+
+      .vh {
+        margin-top: 100vh;
+      }
+      .testimonials {
+        background-color: #000;
+        color: #fff;
+        padding: 3rem;
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+
+      .testimonial {
+        margin: 2rem;
+        padding: 15px;
+        flex: 1 1 200px;
+        background-color: #ffad426b;
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+      }
+
+      .testimonial:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .testimonial h3 {
+        margin-top: 1rem;
+        color: #ffae42;
+      }
+
+      .testimonial p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin: 0.5rem 0;
+      }
+
+      /* Gallery Section */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        padding: 2rem;
+        background-color: #000;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .gallery-item img:hover {
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Style for Q&A section */
+      .faq {
+        background-color: #5a5a5a81;
+        color: #fff;
+        padding: 2rem;
+        max-width: 800px;
+        margin: 2rem auto;
+        border-radius: 10px;
+      }
+
+      .question {
+        margin-bottom: 1rem;
+        cursor: pointer;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 1rem;
+      }
+
+      .question h3 {
+        font-size: 1.5rem;
+        color: #ffae42;
+        margin-bottom: 0.5rem;
+        transition: color 0.3s ease;
+      }
+
+      .question:hover h3 {
+        color: #ffbf66;
+      }
+
+      .answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+      }
+
+      .answer p {
+        margin-top: 0.5rem;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .faq a {
+        color: #ffae42;
+      }
+
+      .faq a:hover {
+        color: #ffbf66;
+      }
+
+      .faq a:visited {
+        color: #db0700;
+      }
+
+      /* Gradient section */
+      .gradient-section {
+        height: 500px;
+        position: relative;
+        background: linear-gradient(to bottom, #000, #ffad4259, #000);
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        color: #fff;
+        overflow: hidden;
+      }
+
+      /* Wood pattern overlay */
+      .wood-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("wood-grain.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-blend-mode: multiply;
+        padding: 2rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Text styling */
+      .wood-overlay h2 {
+        font-size: 6rem;
+        color: #ffffff;
+        margin-bottom: 1rem;
+      }
+
+      .process {
+        color: #fff;
+        padding: 3rem 1rem;
+        text-align: center;
+      }
+
+      .process h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        color: #ffae42;
+      }
+
+      .process-steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+
+      .step {
+        background-color: rgba(255, 174, 66, 0.2);
+        border-radius: 10px;
+        padding: 2rem;
+        transition: transform 0.3s;
+      }
+
+      .step:hover {
+        transform: translateY(-5px);
+      }
+
+      .icon {
+        margin-bottom: 1rem;
+        font-size: 3rem;
+        color: #ffae42;
+      }
+
+      @media (max-width: 768px) {
+        .process-steps {
+          grid-template-columns: 1fr;
+        }
+
+        .step {
+          padding: 1.5rem;
+        }
+      }
+
+      .cost-estimator {
+        color: #fff;
+        text-align: center;
+      }
+
+      input[type="number"],
+      input[type="checkbox"] {
+        margin: 1rem 0;
+      }
+
+      #calculate-btn {
+        padding: 0.5rem 1rem;
+        background-color: #ffae42;
+        border: none;
+        color: #000;
+        cursor: pointer;
+      }
+
+      #calculate-btn:hover {
+        background-color: #ffbf66;
+      }
+
+      #estimated-cost {
+        margin-top: 1rem;
+        color: #ffae42;
+      }
+
+      .about-us-section {
+        background-color: #000;
+        color: #fff;
+        padding: 3rem;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .about-us-title {
+        margin-bottom: 2rem;
+        font-size: 2.5rem;
+        color: #ffae42;
+      }
+
+      .about-content {
+        margin: 0 auto;
+        max-width: 800px;
+      }
+
+      .about-image {
+        width: 300px;
+        height: auto;
+        margin-right: 2rem;
+        float: left;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+      }
+
+      .about-text {
+        text-align: left;
+      }
+
+      .about-text p {
+        margin-top: 15px;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .bottom-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: #ffae42;
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .bottom-button:hover {
+        background-color: #ffbf66;
+      }
+
+      .footer {
+        height: 200px;
+        background: linear-gradient(to bottom, #000, #ffad4259);
+        position: relative;
+        color: #fff;
+        overflow: hidden;
+      }
+
+      .wood-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("wood-grain.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-blend-mode: multiply;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .footer h2 {
+        font-size: 2rem;
+        margin: 0.5rem 0;
+      }
+
+      .footer p {
+        margin: 0;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>Crafting Timeless A-Frame Homes for Mountain Living</h1>
+        <a href="#quote" class="cta-button">Get a Quote</a>
+      </div>
+    </header>
+    <div class="black">
+      <section class="vh testimonials">
+        <div class="testimonial">
+          <p>
+            "Luxe Alpine Designs exceeded our expectations. Our A-frame is the
+            perfect retreat!"
+          </p>
+          <h3>- John D.</h3>
+        </div>
+        <div class="testimonial">
+          <p>
+            "The craftsmanship is outstanding. We've never felt more at home in
+            the mountains."
+          </p>
+          <h3>- Sarah W.</h3>
+        </div>
+        <div class="testimonial">
+          <p>
+            "From start to finish, Luxe Alpine Designs made the entire process
+            seamless."
+          </p>
+          <h3>- Mike K.</h3>
+        </div>
+      </section>
+
+      <section class="gallery">
+        <div class="gallery-item">
+          <img src="image1.jpg" alt="A-frame home 1" />
+        </div>
+        <div class="gallery-item">
+          <img src="image2.jpg" alt="A-frame home 2" />
+        </div>
+        <div class="gallery-item">
+          <img src="image3.jpg" alt="A-frame home 3" />
+        </div>
+        <div class="gallery-item">
+          <img src="image4.jpg" alt="A-frame home 4" />
+        </div>
+        <div class="gallery-item">
+          <img src="image5.jpg" alt="A-frame home 5" />
+        </div>
+        <div class="gallery-item">
+          <img src="image6.jpg" alt="A-frame home 6" />
+        </div>
+      </section>
+
+      <section class="faq">
+        <div class="question">
+          <h3>What is an A-frame house?</h3>
+          <div class="answer">
+            <p>
+              An A-frame house is a type of architecture characterized by
+              steeply angled sides that form a triangle, resembling the letter
+              "A."
+            </p>
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>Why choose Luxe Alpine Designs?</h3>
+          <div class="answer">
+            <p>
+              We specialize in crafting luxurious, sustainable A-frame homes
+              that blend seamlessly into mountain landscapes.
+            </p>
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>Can I customize my A-frame home?</h3>
+          <div class="answer">
+            <p>
+              Absolutely! We offer a wide range of customization options, from
+              layout to materials and finishes.
+            </p>
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>What are the benefits of an A-frame design?</h3>
+          <div class="answer">
+            <p>
+              A-frame designs provide excellent natural light, efficient snow
+              shedding, and open interior spaces, making them perfect for
+              mountain living.
+            </p>
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>How long does it take to build an A-frame home?</h3>
+          <div class="answer">
+            <p>
+              The timeline can vary based on customization and site conditions,
+              but on average, it takes about 6 to 12 months from design to
+              completion.
+            </p>
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>
+            What is the estimated cost per square foot for an A-frame house?
+          </h3>
+          <div class="answer">
+            <p>
+              Our current estimate is $150 per square foot, but the final cost
+              may vary based on design choices and materials. For a more
+              personalized estimate, please use our
+              <a href="#cost-calculator">cost estimator</a>.
+            </p>
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>Are A-frame homes energy-efficient?</h3>
+          <div class="answer">
+            <p>
+              Yes, their unique shape and construction can enhance energy
+              efficiency, especially when combined with modern insulation and
+              renewable energy options.
+            </p>
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>Do you offer financing options?</h3>
+          <div class="answer">
+            <p>
+              We work with various financing partners to help you find the best
+              options for your budget.
+            </p>
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>Can I visit a completed A-frame home?</h3>
+          <div class="answer">
+            <p>
+              Yes, we can arrange tours of our completed projects, so you can
+              see our craftsmanship and design in person.
+            </p>
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>What is included in the design process?</h3>
+          <div class="answer">
+            <p>
+              Our design process includes consultations, 3D modeling, and
+              collaboration to ensure your vision is realized.
+            </p>
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>Do you handle permits and zoning requirements?</h3>
+          <div class="answer">
+            <p>
+              Yes, we take care of all necessary permits and ensure compliance
+              with local zoning laws.
+            </p>
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>What types of materials do you use?</h3>
+          <div class="answer">
+            <p>
+              We use high-quality, sustainable materials to ensure durability
+              and environmental responsibility.
+            </p>
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>How can I get started with Luxe Alpine Designs?</h3>
+          <div class="answer">
+            <p>
+              Simply contact us through our website or give us a call, and we'll
+              schedule a consultation to discuss your vision!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="gradient-section">
+        <div class="wood-overlay">
+          <h2>ALPINE LUXE</h2>
+        </div>
+      </section>
+
+      <section class="process">
+        <h2>How It Works</h2>
+        <div class="process-steps">
+          <div class="step">
+            <div class="icon">
+              <i class="fa-regular fa-handshake"></i>
+            </div>
+            <h3>Initial Consultation</h3>
+            <p>
+              We discuss your vision and needs to create a personalized plan.
+            </p>
+          </div>
+          <div class="step">
+            <div class="icon"><i class="fas fa-pencil-alt"></i></div>
+            <h3>Design Phase</h3>
+            <p>Our team drafts detailed plans and 3D models for your review.</p>
+          </div>
+          <div class="step">
+            <div class="icon"><i class="fa-solid fa-stamp"></i></div>
+            <h3>Design Approval</h3>
+            <p>You provide feedback and approve the final designs.</p>
+          </div>
+          <div class="step">
+            <div class="icon"><i class="fa-solid fa-hammer"></i></div>
+            <h3>Building Your Dream Home</h3>
+            <p>
+              Our skilled team constructs your home with meticulous attention to
+              detail.
+            </p>
+          </div>
+          <div class="step">
+            <div class="icon">
+              <i class="fa-solid fa-person-walking"></i>
+            </div>
+            <h3>Final Walkthrough</h3>
+            <p>
+              You tour your completed home to ensure everything meets your
+              expectations.
+            </p>
+          </div>
+          <div class="step">
+            <div class="icon">
+              <i class="fa-regular fa-face-smile"></i>
+            </div>
+            <h3>Enjoy Your New Home</h3>
+            <p>Move in and enjoy your beautiful new A-frame home!</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cost-estimator" id="cost-calculator">
+        <h2 class="about-us-title">Cost Estimator</h2>
+
+        <label for="square-footage">Enter Square Footage:</label>
+        <input type="number" id="square-footage" placeholder="e.g. 1200" />
+
+        <div>
+          <label>
+            <input type="checkbox" id="garage-option" />
+            Garage (+$20,000)
+          </label>
+        </div>
+
+        <div>
+          <label>
+            <input type="checkbox" id="high-end-appliances-option" />
+            High-End Appliances (+$15,000)
+          </label>
+        </div>
+
+        <div>
+          <label>
+            <input type="checkbox" id="concrete-basement-option" />
+            Concrete Basement (+$25,000)
+          </label>
+        </div>
+
+        <button id="calculate-btn">Calculate Cost</button>
+        <h3 id="estimated-cost"></h3>
+      </section>
+      <section class="about-us-section">
+        <h2 class="about-us-title">About Us</h2>
+        <div class="about-content">
+          <img
+            src="aboutImage.jpg"
+            alt="People standing in front of an A-frame"
+            class="about-image"
+          />
+          <div class="about-text">
+            <p>
+              At Luxe Alpine Designs, our journey began in the breathtaking
+              mountains of the Kootenays, where the beauty of nature shaped our
+              childhood and inspired our dreams. Growing up surrounded by
+              towering trees, pristine lakes, and the majestic peaks of the
+              Rockies, we developed a deep appreciation for the unique charm and
+              tranquility of mountain living.
+            </p>
+            <p>
+              From an early age, we were captivated by the idea of creating
+              spaces that harmonize with the natural landscape. Our passion for
+              design was ignited during family camping trips, where we spent
+              nights under starlit skies and mornings in cozy cabins. These
+              experiences sparked our desire to craft homes that blend
+              seamlessly with the environment, providing comfort and elegance
+              for families seeking a retreat from the hustle and bustle of city
+              life.
+            </p>
+            <p>
+              With years of experience in architecture and design, we founded
+              Luxe Alpine Designs to turn our vision into reality. Our mission
+              is to create stunning A-frame homes that celebrate the essence of
+              mountain living. We believe that every home should be a sanctuary,
+              reflecting the beauty of its surroundings while offering modern
+              amenities and high-quality craftsmanship.
+            </p>
+            <p>
+              Join us on this journey as we build dream homes that inspire
+              connection, relaxation, and a love for the great outdoors.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="testimonials">
+        <div class="testimonial">
+          <p>
+            "Working with Luxe Alpine Designs was a dream! Our A-frame home is
+            not only beautiful but also functional."
+          </p>
+          <h3>- Emily R.</h3>
+        </div>
+        <div class="testimonial">
+          <p>
+            "The team listened to our ideas and brought them to life with
+            stunning detail. We couldn't be happier!"
+          </p>
+          <h3>- David L.</h3>
+        </div>
+        <div class="testimonial">
+          <p>
+            "Luxe Alpine Designs transformed our vision into reality. Our family
+            loves spending time in our new home!"
+          </p>
+          <h3>- Jessica M.</h3>
+        </div>
+      </section>
+
+      <div class="button-container">
+        <a href="mailto:example@email.com" class="bottom-button"
+          >Reach Out Today</a
+        >
+      </div>
+
+      <footer class="footer">
+        <div class="wood-overlay">
+          <h2>ALPINE LUXE DESIGNS</h2>
+          <p>Crafting unique A-frame homes in harmony with nature.</p>
+          <p>&copy; 2024 Luxe Alpine Designs. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+    <script>
+      document.querySelectorAll(".question").forEach((question) => {
+        question.addEventListener("click", () => {
+          const answer = question.querySelector(".answer");
+          const currentlyOpen = document.querySelector(".answer.active");
+
+          // Close currently open answer (if any)
+          if (currentlyOpen && currentlyOpen !== answer) {
+            currentlyOpen.style.maxHeight = "0";
+            currentlyOpen.classList.remove("active");
+          }
+
+          // Toggle the selected answer
+          if (answer.classList.contains("active")) {
+            answer.style.maxHeight = "0"; // Collapse
+          } else {
+            answer.style.maxHeight = answer.scrollHeight + "px"; // Expand
+          }
+
+          answer.classList.toggle("active");
+        });
+      });
+
+      document
+        .getElementById("calculate-btn")
+        .addEventListener("click", function () {
+          const squareFootage =
+            parseFloat(document.getElementById("square-footage").value) || 0; // Ensure it's a number
+          const costPerSqFt = 150; // Cost per square foot
+          let estimatedCost = squareFootage * costPerSqFt;
+
+          // Calculate costs for additional features
+          if (document.getElementById("garage-option").checked) {
+            estimatedCost += 20000; // Garage cost
+          }
+          if (document.getElementById("high-end-appliances-option").checked) {
+            estimatedCost += 15000; // High-end appliances cost
+          }
+          if (document.getElementById("concrete-basement-option").checked) {
+            estimatedCost += 25000; // Concrete basement cost
+          }
+
+          document.getElementById(
+            "estimated-cost"
+          ).innerText = `Estimated Cost: $${estimatedCost.toLocaleString()}`;
+        });
+    </script>
+  </body>
+</html>
